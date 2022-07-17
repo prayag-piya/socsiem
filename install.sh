@@ -84,6 +84,7 @@ elasticseven() {
         elasticseven
     fi
     apt-get install elasticsearch=7.17.4
+    curl 
 }
 
 while true; do
