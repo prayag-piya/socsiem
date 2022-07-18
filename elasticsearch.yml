@@ -1,8 +1,11 @@
-snetwork.host: 0.0.0.0
+network.host: 0.0.0.0
 node.name: socsiem-1
 cluster.name: soc-nps
-cluster.initial_master_nodes: socsiem-1
-discovery.seed_hosts: ["172.16.20.13", "172.16.20.12"]
+cluster.initial_master_nodes:
+        - socsiem-1
+discovery.seed_hosts:
+        - "172.16.20.12"
+        - "172.16.20.13"
 
 # Transport layer
 xpack.security.transport.ssl.enabled: true
@@ -20,6 +23,7 @@ xpack.security.http.ssl.certificate_authorities: /etc/elasticsearch/certs/ca/ca.
 
 # Elasticsearch authentication
 xpack.security.enabled: true
+
 
 path.data: /var/lib/elasticsearch
 path.logs: /var/log/elasticsearch

@@ -1,0 +1,16 @@
+instances:
+- name: "socsiem"
+  ip:
+  - "172.16.20.12"
+- name: "socsiem-1"
+  ip:
+  - "172.16.20.13"
+- name: kibana
+  ip:
+  - "10.15.15.11"
+- name: filebeat-1
+  ip:
+  - "172.16.20.8"
+- name: filebeat-2
+  ip:
+  - "172.16.20.14"

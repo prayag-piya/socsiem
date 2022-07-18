@@ -19,7 +19,9 @@ banner() {
     echo
     echo "1) Install Elasticsearch 7"
     echo "2) Install Elasticsearch 8"
-    echo "3) Install Wazuh"
+    echo "3) Install Wazuh."
+    echo "4) Share certificate."
+    echo "5) Install certificate."
     echo -n "Exit [Q] : "
     read ans
 }
@@ -84,7 +86,8 @@ elasticseven() {
         elasticseven
     fi
     apt-get install elasticsearch=7.17.4
-    curl 
+    mv elasticsearch.yml /etc/elasticsearch/
+    #curl -so /etc/elasticsearch/elasticsearch.yml https://github.com/prayag-piya/socsiem/blob/master/elastic.yml
 }
 
 while true; do
@@ -99,6 +102,7 @@ while true; do
         elif [[ "$ans" == "1" ]]; then
             updatecache
             essitial
+            elasticseven
         fi
     fi
 done
