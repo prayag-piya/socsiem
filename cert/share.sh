@@ -4,6 +4,8 @@ clear
 autoscp() {
     echo -n "Enter username: "
     read ans
+    echo -n "Enter Ip Address: "
+    read ip
     if [[ -z "$ans" ]]; then
         clear
         echo "No username selected"
@@ -16,8 +18,12 @@ autoscp() {
         echo "No password entered."
         autoscp
     fi
+    echo -n "Enter path to the zip: "
+    read path
     apt install sshpass
-    sshpass -p "$password" scp ~/certs.zip $ans@$ip:/home/pnot
+    sshpass -p "$password" scp $path $ans@$ip:/home/pnot
     # unzip ~/certs.zip -d ~/certs
     # cp -R ~/certs/ca/ ~/certs/elastcisearch
 }
+
+autoscp

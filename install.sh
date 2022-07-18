@@ -103,6 +103,11 @@ while true; do
             updatecache
             essitial
             elasticseven
+        elif [[ "$ans" == "4" ]]; then
+            /bin/bash cert/share.sh
+        elif [[ "$ans" == "5" ]]; then
+            /bin/bash cert/certificate
         fi
+
     fi
 done
