@@ -30,61 +30,61 @@ updatecache() {
     echo "Installing elasticsearch 7.17.4"
     echo -e "step 1: ${GREEN}update apt cache${NOCOLOR}"
     apt-get update -y
-    if [[ $? == 0 ]]; then
-        clear
-        errcount=$((errcount + 1))
-        echo -e "${RED}Failed updating apt cache${NOCOLOR}"
-        echo -e "${GREEN}Retrying again: attemp $errcount${NOCOLOR}"
-        if [[ $errcount -gt 3 ]]; then
-            clear
-            echo -e "${RED}Command did not success${NOCOLOR}"
-            echo -e "${RED}Please make sure that you are connected to the internet${NOCOLOR}"
-            exit 0
-        else
-            errcount=0
-        fi
-        updatecache
-    fi
+    # if [[ $? == 0 ]]; then
+    #     clear
+    #     errcount=$((errcount + 1))
+    #     echo -e "${RED}Failed updating apt cache${NOCOLOR}"
+    #     echo -e "${GREEN}Retrying again: attemp $errcount${NOCOLOR}"
+    #     if [[ $errcount -gt 3 ]]; then
+    #         clear
+    #         echo -e "${RED}Command did not success${NOCOLOR}"
+    #         echo -e "${RED}Please make sure that you are connected to the internet${NOCOLOR}"
+    #         exit 0
+    #     else
+    #         errcount=0
+    #     fi
+    #     updatecache
+    # fi
 }
 
 essitial() {
     echo -e "step 2: ${GREEN}Installing essential support for elasticsearch${NOCOLOR}"
     apt-get install apt-transport-https zip unzip lsb-release curl gnupg -y
-    if [[ $? == 0 ]]; then
-        clear
-        errcount=$((errcount + 1))
-        echo -e "${RED}Failed updating apt cache${NOCOLOR}"
-        echo -e "${GREEN}Retrying again: attemp $errcount${NOCOLOR}"
-        if [[ $errcount -gt 3 ]]; then
-            clear
-            echo -e "${RED}Command did not success${NOCOLOR}"
-            echo -e "${RED}Please make sure that you are connected to the internet${NOCOLOR}"   
-            exit 0
-        else
-            errcount=0
-        fi
-        essitial
-    fi
+    # if [[ $? == 0 ]]; then
+    #     clear
+    #     errcount=$((errcount + 1))
+    #     echo -e "${RED}Failed updating apt cache${NOCOLOR}"
+    #     echo -e "${GREEN}Retrying again: attemp $errcount${NOCOLOR}"
+    #     if [[ $errcount -gt 3 ]]; then
+    #         clear
+    #         echo -e "${RED}Command did not success${NOCOLOR}"
+    #         echo -e "${RED}Please make sure that you are connected to the internet${NOCOLOR}"   
+    #         exit 0
+    #     else
+    #         errcount=0
+    #     fi
+    #     essitial
+    # fi
 }
 
 elasticseven() {
     echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | tee /etc/apt/sources.list.d/elastic-7.x.list
     apt-get update
-    if [[ $? == 0 ]]; then
-        clear
-        errcount=$((errcount + 1))
-        echo -e "${RED}Failed Addding elasticsearch 7 repo${NOCOLOR}"
-        echo -e "${GREEN}Retrying again: attemp $errcount${NOCOLOR}"
-        if [[ $errcount -gt 3 ]]; then
-            clear
-            echo -e "${RED}Command did not success${NOCOLOR}"
-            echo -e "${RED}Please make sure that you are connected to the internet${NOCOLOR}"   
-            exit 0
-        else
-            errcount=0
-        fi
-        elasticseven
-    fi
+    # if [[ $? == 0 ]]; then
+    #     clear
+    #     errcount=$((errcount + 1))
+    #     echo -e "${RED}Failed Addding elasticsearch 7 repo${NOCOLOR}"
+    #     echo -e "${GREEN}Retrying again: attemp $errcount${NOCOLOR}"
+    #     if [[ $errcount -gt 3 ]]; then
+    #         clear
+    #         echo -e "${RED}Command did not success${NOCOLOR}"
+    #         echo -e "${RED}Please make sure that you are connected to the internet${NOCOLOR}"   
+    #         exit 0
+    #     else
+    #         errcount=0
+    #     fi
+    #     elasticseven
+    # fi
     apt-get install elasticsearch=7.17.4
     mv elasticsearch.yml /etc/elasticsearch/
     #curl -so /etc/elasticsearch/elasticsearch.yml https://github.com/prayag-piya/socsiem/blob/master/elastic.yml
