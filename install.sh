@@ -103,6 +103,9 @@ while true; do
             updatecache
             essitial
             elasticseven
+        elif [[ "$ans" == "3" ]]; then
+            /bin/bash wazuh/installWazuh.sh
+        
         elif [[ "$ans" == "4" ]]; then
             /bin/bash cert/share.sh
         elif [[ "$ans" == "5" ]]; then

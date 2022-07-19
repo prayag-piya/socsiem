@@ -5,10 +5,13 @@ NOCOLOR="\033[0m"
 
 
 unzip() {
-    unzip ~/certs.zip -d ~/certs
+    if [[ -f "~/certs.zip" ]]; then
+        unzip ~/certs.zip -d ~/certs
+    else
+        /usr/share/elasticsearch/bin/elasticsearch-certutil cert ca --pen --in instances.yml --keep-ca-key --out ~/certs.zip
+    fi
 }
 
-/usr/share/elasticsearch/bin/elasticsearch-certutil cert ca --pen --in instances.yml --keep-ca-key --out ~/certs.zip
 unzip
 if [[ $? == 0 ]]; then
     clear
